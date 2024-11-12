@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playersservice-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: playersservice
+  template:
+    metadata:
+      labels:
+        app: playersservice
+    spec:
+      containers:
+        - name: playersservice
+          image: playersservice:latest
+          ports:
+            - containerPort: 8080
